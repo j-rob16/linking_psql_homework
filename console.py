@@ -26,4 +26,6 @@ album_4 = Album('Evil Empire', 'Rock', rage_atm)
 album_repository.save(album_4)
 
 
+print(album_repository.display_albums(nirvana))
+
 pdb.set_trace()

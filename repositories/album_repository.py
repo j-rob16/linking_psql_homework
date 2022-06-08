@@ -61,3 +61,22 @@ def delete(id):
     sql = "DELETE FROM albums WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def display_albums(artist):
+    albums = None
+    sql = "SELECT FROM albums WHERE artist_id = %s"
+    values = [artist.id]
+    results = run_sql(sql, values)
+
+    if results is not None:
+        for row in results:
+            artist_id = results['artist_id']
+            artist = artist_repository.select(artist_id)
+            album = Album(
+                row['title'],
+                row['genre'],
+                artist,
+                row['id']
+            )
+            albums.append(album)
+    return albums
