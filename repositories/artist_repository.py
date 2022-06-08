@@ -4,12 +4,11 @@ from models.artist import Artist
 
 def save(artist):
     sql = """INSERT INTO artists (name)
-    VALUES (%s, %s, %s) RETURNING id
+    VALUES (%s) RETURNING *
     """
     values = [artist.name]
     results = run_sql(sql, values)
-    id = results[0]['id']
-    artist.id = id
+    artist.id = results[0]['id']
     return artist
 
 def select_all():

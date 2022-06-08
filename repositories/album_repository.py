@@ -25,7 +25,8 @@ def select_all():
         album = Album(
             row['title'],
             row['genre'],
-            artist
+            artist,
+            row['id']
         )
         albums.append(album)
     return albums
@@ -42,7 +43,8 @@ def select(id):
         album = Album(
             result['title'],
             result['genre'],
-            artist
+            artist,
+            result['id']
         )
     return album
 
